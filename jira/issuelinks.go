@@ -22,18 +22,18 @@ type IssueLink struct {
 
 // LinkedIssue represents a linked issue reference.
 type LinkedIssue struct {
-	ID     string           `json:"id,omitempty"`
-	Key    string           `json:"key,omitempty"`
-	Self   string           `json:"self,omitempty"`
+	ID     string             `json:"id,omitempty"`
+	Key    string             `json:"key,omitempty"`
+	Self   string             `json:"self,omitempty"`
 	Fields *LinkedIssueFields `json:"fields,omitempty"`
 }
 
 // LinkedIssueFields represents the fields of a linked issue.
 type LinkedIssueFields struct {
-	Summary    string     `json:"summary,omitempty"`
-	Status     *Status    `json:"status,omitempty"`
-	Priority   *Priority  `json:"priority,omitempty"`
-	IssueType  *IssueType `json:"issuetype,omitempty"`
+	Summary   string     `json:"summary,omitempty"`
+	Status    *Status    `json:"status,omitempty"`
+	Priority  *Priority  `json:"priority,omitempty"`
+	IssueType *IssueType `json:"issuetype,omitempty"`
 }
 
 // Get returns an issue link by ID.

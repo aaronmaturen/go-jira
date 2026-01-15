@@ -42,15 +42,15 @@ type SearchOptions struct {
 
 // SearchResult represents the result of a search query.
 type SearchResult struct {
-	Expand        string   `json:"expand,omitempty"`
-	StartAt       int      `json:"startAt,omitempty"`
-	MaxResults    int      `json:"maxResults,omitempty"`
-	Total         int      `json:"total,omitempty"`
-	Issues        []*Issue `json:"issues,omitempty"`
-	WarningMessages []string `json:"warningMessages,omitempty"`
-	Names         map[string]string `json:"names,omitempty"`
-	Schema        map[string]interface{} `json:"schema,omitempty"`
-	NextPageToken string   `json:"nextPageToken,omitempty"`
+	Expand          string                 `json:"expand,omitempty"`
+	StartAt         int                    `json:"startAt,omitempty"`
+	MaxResults      int                    `json:"maxResults,omitempty"`
+	Total           int                    `json:"total,omitempty"`
+	Issues          []*Issue               `json:"issues,omitempty"`
+	WarningMessages []string               `json:"warningMessages,omitempty"`
+	Names           map[string]string      `json:"names,omitempty"`
+	Schema          map[string]interface{} `json:"schema,omitempty"`
+	NextPageToken   string                 `json:"nextPageToken,omitempty"`
 }
 
 // SearchRequest represents a POST search request body.
@@ -184,30 +184,30 @@ type PickerSuggestions struct {
 
 // PickerSection represents a section in issue picker suggestions.
 type PickerSection struct {
-	Label      string             `json:"label,omitempty"`
-	Sub        string             `json:"sub,omitempty"`
-	ID         string             `json:"id,omitempty"`
-	Msg        string             `json:"msg,omitempty"`
-	Issues     []*PickerIssue     `json:"issues,omitempty"`
+	Label  string         `json:"label,omitempty"`
+	Sub    string         `json:"sub,omitempty"`
+	ID     string         `json:"id,omitempty"`
+	Msg    string         `json:"msg,omitempty"`
+	Issues []*PickerIssue `json:"issues,omitempty"`
 }
 
 // PickerIssue represents an issue in picker suggestions.
 type PickerIssue struct {
-	Key            string `json:"key,omitempty"`
-	KeyHTML        string `json:"keyHtml,omitempty"`
-	Img            string `json:"img,omitempty"`
-	Summary        string `json:"summary,omitempty"`
-	SummaryText    string `json:"summaryText,omitempty"`
+	Key         string `json:"key,omitempty"`
+	KeyHTML     string `json:"keyHtml,omitempty"`
+	Img         string `json:"img,omitempty"`
+	Summary     string `json:"summary,omitempty"`
+	SummaryText string `json:"summaryText,omitempty"`
 }
 
 // PickerOptions specifies options for the issue picker.
 type PickerOptions struct {
-	Query           string `url:"query,omitempty"`
-	CurrentJQL      string `url:"currentJQL,omitempty"`
-	CurrentIssueKey string `url:"currentIssueKey,omitempty"`
-	CurrentProjectID string `url:"currentProjectId,omitempty"`
-	ShowSubTasks    bool   `url:"showSubTasks,omitempty"`
-	ShowSubTaskParent bool `url:"showSubTaskParent,omitempty"`
+	Query             string `url:"query,omitempty"`
+	CurrentJQL        string `url:"currentJQL,omitempty"`
+	CurrentIssueKey   string `url:"currentIssueKey,omitempty"`
+	CurrentProjectID  string `url:"currentProjectId,omitempty"`
+	ShowSubTasks      bool   `url:"showSubTasks,omitempty"`
+	ShowSubTaskParent bool   `url:"showSubTaskParent,omitempty"`
 }
 
 // Picker returns issue picker suggestions.

@@ -16,19 +16,19 @@ type DashboardsService struct {
 
 // Dashboard represents a Jira dashboard.
 type Dashboard struct {
-	Self             string           `json:"self,omitempty"`
-	ID               string           `json:"id,omitempty"`
-	IsFavourite      bool             `json:"isFavourite,omitempty"`
-	Name             string           `json:"name,omitempty"`
-	Description      string           `json:"description,omitempty"`
-	Owner            *User            `json:"owner,omitempty"`
-	Popularity       int              `json:"popularity,omitempty"`
-	Rank             int              `json:"rank,omitempty"`
+	Self             string             `json:"self,omitempty"`
+	ID               string             `json:"id,omitempty"`
+	IsFavourite      bool               `json:"isFavourite,omitempty"`
+	Name             string             `json:"name,omitempty"`
+	Description      string             `json:"description,omitempty"`
+	Owner            *User              `json:"owner,omitempty"`
+	Popularity       int                `json:"popularity,omitempty"`
+	Rank             int                `json:"rank,omitempty"`
 	SharePermissions []*SharePermission `json:"sharePermissions,omitempty"`
 	EditPermissions  []*SharePermission `json:"editPermissions,omitempty"`
-	View             string           `json:"view,omitempty"`
-	IsWritable       bool             `json:"isWritable,omitempty"`
-	SystemDashboard  bool             `json:"systemDashboard,omitempty"`
+	View             string             `json:"view,omitempty"`
+	IsWritable       bool               `json:"isWritable,omitempty"`
+	SystemDashboard  bool               `json:"systemDashboard,omitempty"`
 }
 
 // DashboardListResult represents a paginated list of dashboards.
@@ -84,17 +84,17 @@ func (s *DashboardsService) List(ctx context.Context, opts *ListDashboardsOption
 
 // SearchDashboardsOptions specifies options for searching dashboards.
 type SearchDashboardsOptions struct {
-	DashboardName            string   `url:"dashboardName,omitempty"`
-	AccountID                string   `url:"accountId,omitempty"`
-	Owner                    string   `url:"owner,omitempty"`
-	Groupname                string   `url:"groupname,omitempty"`
-	GroupID                  string   `url:"groupId,omitempty"`
-	ProjectID                int64    `url:"projectId,omitempty"`
-	OrderBy                  string   `url:"orderBy,omitempty"`
-	StartAt                  int      `url:"startAt,omitempty"`
-	MaxResults               int      `url:"maxResults,omitempty"`
-	Status                   string   `url:"status,omitempty"`
-	Expand                   []string `url:"expand,omitempty"`
+	DashboardName string   `url:"dashboardName,omitempty"`
+	AccountID     string   `url:"accountId,omitempty"`
+	Owner         string   `url:"owner,omitempty"`
+	Groupname     string   `url:"groupname,omitempty"`
+	GroupID       string   `url:"groupId,omitempty"`
+	ProjectID     int64    `url:"projectId,omitempty"`
+	OrderBy       string   `url:"orderBy,omitempty"`
+	StartAt       int      `url:"startAt,omitempty"`
+	MaxResults    int      `url:"maxResults,omitempty"`
+	Status        string   `url:"status,omitempty"`
+	Expand        []string `url:"expand,omitempty"`
 }
 
 // SearchDashboardsResult represents a paginated list of dashboards from search.
@@ -186,8 +186,8 @@ func (s *DashboardsService) Get(ctx context.Context, dashboardID string) (*Dashb
 
 // DashboardCreateRequest represents a request to create a dashboard.
 type DashboardCreateRequest struct {
-	Name             string           `json:"name"`
-	Description      string           `json:"description,omitempty"`
+	Name             string             `json:"name"`
+	Description      string             `json:"description,omitempty"`
 	SharePermissions []*SharePermission `json:"sharePermissions,omitempty"`
 	EditPermissions  []*SharePermission `json:"editPermissions,omitempty"`
 }
@@ -210,8 +210,8 @@ func (s *DashboardsService) Create(ctx context.Context, dashboard *DashboardCrea
 
 // DashboardUpdateRequest represents a request to update a dashboard.
 type DashboardUpdateRequest struct {
-	Name             string           `json:"name,omitempty"`
-	Description      string           `json:"description,omitempty"`
+	Name             string             `json:"name,omitempty"`
+	Description      string             `json:"description,omitempty"`
 	SharePermissions []*SharePermission `json:"sharePermissions,omitempty"`
 	EditPermissions  []*SharePermission `json:"editPermissions,omitempty"`
 }
@@ -266,12 +266,12 @@ func (s *DashboardsService) Copy(ctx context.Context, dashboardID string, dashbo
 
 // DashboardGadget represents a gadget on a dashboard.
 type DashboardGadget struct {
-	ID                 int64           `json:"id,omitempty"`
-	ModuleKey          string          `json:"moduleKey,omitempty"`
-	URI                string          `json:"uri,omitempty"`
-	Color              string          `json:"color,omitempty"`
-	Position           *GadgetPosition `json:"position,omitempty"`
-	Title              string          `json:"title,omitempty"`
+	ID        int64           `json:"id,omitempty"`
+	ModuleKey string          `json:"moduleKey,omitempty"`
+	URI       string          `json:"uri,omitempty"`
+	Color     string          `json:"color,omitempty"`
+	Position  *GadgetPosition `json:"position,omitempty"`
+	Title     string          `json:"title,omitempty"`
 }
 
 // GadgetPosition represents the position of a gadget.
@@ -409,7 +409,7 @@ func (s *DashboardsService) BulkEdit(ctx context.Context, action string, dashboa
 	u := "/rest/api/3/dashboard/bulk/edit"
 
 	body := map[string]interface{}{
-		"action":       action,
+		"action":               action,
 		"selectedDashboardIds": dashboardIDs,
 	}
 	if changeOwnerAccountID != "" {

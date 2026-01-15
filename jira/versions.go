@@ -17,30 +17,30 @@ type VersionsService struct {
 
 // Version represents a Jira project version.
 type Version struct {
-	Self                      string    `json:"self,omitempty"`
-	ID                        string    `json:"id,omitempty"`
-	Name                      string    `json:"name,omitempty"`
-	Description               string    `json:"description,omitempty"`
-	Archived                  bool      `json:"archived,omitempty"`
-	Released                  bool      `json:"released,omitempty"`
-	StartDate                 string    `json:"startDate,omitempty"`
-	ReleaseDate               string    `json:"releaseDate,omitempty"`
-	UserStartDate             string    `json:"userStartDate,omitempty"`
-	UserReleaseDate           string    `json:"userReleaseDate,omitempty"`
-	ProjectID                 int64     `json:"projectId,omitempty"`
-	Project                   string    `json:"project,omitempty"`
-	Overdue                   bool      `json:"overdue,omitempty"`
-	Operations                []*VersionOperation `json:"operations,omitempty"`
+	Self                      string                  `json:"self,omitempty"`
+	ID                        string                  `json:"id,omitempty"`
+	Name                      string                  `json:"name,omitempty"`
+	Description               string                  `json:"description,omitempty"`
+	Archived                  bool                    `json:"archived,omitempty"`
+	Released                  bool                    `json:"released,omitempty"`
+	StartDate                 string                  `json:"startDate,omitempty"`
+	ReleaseDate               string                  `json:"releaseDate,omitempty"`
+	UserStartDate             string                  `json:"userStartDate,omitempty"`
+	UserReleaseDate           string                  `json:"userReleaseDate,omitempty"`
+	ProjectID                 int64                   `json:"projectId,omitempty"`
+	Project                   string                  `json:"project,omitempty"`
+	Overdue                   bool                    `json:"overdue,omitempty"`
+	Operations                []*VersionOperation     `json:"operations,omitempty"`
 	IssuesStatusForFixVersion *IssuesStatusForVersion `json:"issuesStatusForFixVersion,omitempty"`
 }
 
 // VersionOperation represents an operation available on a version.
 type VersionOperation struct {
-	ID           string `json:"id,omitempty"`
-	StyleClass   string `json:"styleClass,omitempty"`
-	Label        string `json:"label,omitempty"`
-	Href         string `json:"href,omitempty"`
-	Weight       int    `json:"weight,omitempty"`
+	ID         string `json:"id,omitempty"`
+	StyleClass string `json:"styleClass,omitempty"`
+	Label      string `json:"label,omitempty"`
+	Href       string `json:"href,omitempty"`
+	Weight     int    `json:"weight,omitempty"`
 }
 
 // IssuesStatusForVersion represents issue status counts for a version.
@@ -75,14 +75,14 @@ func (s *VersionsService) Get(ctx context.Context, versionID string, expand []st
 
 // VersionCreateRequest represents a request to create a version.
 type VersionCreateRequest struct {
-	Name        string `json:"name"`
-	Description string `json:"description,omitempty"`
-	ProjectID   int64  `json:"projectId,omitempty"`
-	Project     string `json:"project,omitempty"`
-	Archived    bool   `json:"archived,omitempty"`
-	Released    bool   `json:"released,omitempty"`
-	StartDate   string `json:"startDate,omitempty"`
-	ReleaseDate string `json:"releaseDate,omitempty"`
+	Name                string `json:"name"`
+	Description         string `json:"description,omitempty"`
+	ProjectID           int64  `json:"projectId,omitempty"`
+	Project             string `json:"project,omitempty"`
+	Archived            bool   `json:"archived,omitempty"`
+	Released            bool   `json:"released,omitempty"`
+	StartDate           string `json:"startDate,omitempty"`
+	ReleaseDate         string `json:"releaseDate,omitempty"`
 	MoveUnfixedIssuesTo string `json:"moveUnfixedIssuesTo,omitempty"`
 }
 
@@ -104,12 +104,12 @@ func (s *VersionsService) Create(ctx context.Context, version *VersionCreateRequ
 
 // VersionUpdateRequest represents a request to update a version.
 type VersionUpdateRequest struct {
-	Name        string `json:"name,omitempty"`
-	Description string `json:"description,omitempty"`
-	Archived    bool   `json:"archived,omitempty"`
-	Released    bool   `json:"released,omitempty"`
-	StartDate   string `json:"startDate,omitempty"`
-	ReleaseDate string `json:"releaseDate,omitempty"`
+	Name                string `json:"name,omitempty"`
+	Description         string `json:"description,omitempty"`
+	Archived            bool   `json:"archived,omitempty"`
+	Released            bool   `json:"released,omitempty"`
+	StartDate           string `json:"startDate,omitempty"`
+	ReleaseDate         string `json:"releaseDate,omitempty"`
 	MoveUnfixedIssuesTo string `json:"moveUnfixedIssuesTo,omitempty"`
 }
 
@@ -156,8 +156,8 @@ func (s *VersionsService) Delete(ctx context.Context, versionID string, moveFixI
 
 // DeleteAndReplace deletes a version and replaces it in issues.
 type DeleteAndReplaceRequest struct {
-	MoveFixIssuesTo      int64 `json:"moveFixIssuesTo,omitempty"`
-	MoveAffectedIssuesTo int64 `json:"moveAffectedIssuesTo,omitempty"`
+	MoveFixIssuesTo            int64                     `json:"moveFixIssuesTo,omitempty"`
+	MoveAffectedIssuesTo       int64                     `json:"moveAffectedIssuesTo,omitempty"`
 	CustomFieldReplacementList []*CustomFieldReplacement `json:"customFieldReplacementList,omitempty"`
 }
 
@@ -217,18 +217,18 @@ func (s *VersionsService) Move(ctx context.Context, versionID string, request *V
 
 // VersionIssueCounts represents issue counts for a version.
 type VersionIssueCounts struct {
-	Self                                     string `json:"self,omitempty"`
-	IssuesFixedCount                         int    `json:"issuesFixedCount,omitempty"`
-	IssuesAffectedCount                      int    `json:"issuesAffectedCount,omitempty"`
-	IssueCountWithCustomFieldsShowingVersion int    `json:"issueCountWithCustomFieldsShowingVersion,omitempty"`
+	Self                                     string                       `json:"self,omitempty"`
+	IssuesFixedCount                         int                          `json:"issuesFixedCount,omitempty"`
+	IssuesAffectedCount                      int                          `json:"issuesAffectedCount,omitempty"`
+	IssueCountWithCustomFieldsShowingVersion int                          `json:"issueCountWithCustomFieldsShowingVersion,omitempty"`
 	CustomFieldUsage                         []*VersionUsageInCustomField `json:"customFieldUsage,omitempty"`
 }
 
 // VersionUsageInCustomField represents version usage in a custom field.
 type VersionUsageInCustomField struct {
-	FieldName              string `json:"fieldName,omitempty"`
-	CustomFieldID          int64  `json:"customFieldId,omitempty"`
-	IssueCountWithVersionInCustomField int `json:"issueCountWithVersionInCustomField,omitempty"`
+	FieldName                          string `json:"fieldName,omitempty"`
+	CustomFieldID                      int64  `json:"customFieldId,omitempty"`
+	IssueCountWithVersionInCustomField int    `json:"issueCountWithVersionInCustomField,omitempty"`
 }
 
 // GetIssueCounts returns issue counts for a version.

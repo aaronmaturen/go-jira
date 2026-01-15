@@ -15,11 +15,11 @@ type GroupsService struct {
 
 // Group represents a Jira group.
 type Group struct {
-	Name    string  `json:"name,omitempty"`
-	GroupID string  `json:"groupId,omitempty"`
-	Self    string  `json:"self,omitempty"`
-	Users   *Users  `json:"users,omitempty"`
-	Expand  string  `json:"expand,omitempty"`
+	Name    string `json:"name,omitempty"`
+	GroupID string `json:"groupId,omitempty"`
+	Self    string `json:"self,omitempty"`
+	Users   *Users `json:"users,omitempty"`
+	Expand  string `json:"expand,omitempty"`
 }
 
 // Users represents a paginated list of users in a group.
@@ -234,27 +234,27 @@ func (s *GroupsService) RemoveUser(ctx context.Context, groupName, accountID str
 
 // FindGroupsOptions specifies options for finding groups.
 type FindGroupsOptions struct {
-	AccountID         string   `url:"accountId,omitempty"`
-	Query             string   `url:"query,omitempty"`
-	Exclude           []string `url:"exclude,omitempty"`
-	ExcludeID         []string `url:"excludeId,omitempty"`
-	MaxResults        int      `url:"maxResults,omitempty"`
-	CaseInsensitive   bool     `url:"caseInsensitive,omitempty"`
+	AccountID       string   `url:"accountId,omitempty"`
+	Query           string   `url:"query,omitempty"`
+	Exclude         []string `url:"exclude,omitempty"`
+	ExcludeID       []string `url:"excludeId,omitempty"`
+	MaxResults      int      `url:"maxResults,omitempty"`
+	CaseInsensitive bool     `url:"caseInsensitive,omitempty"`
 }
 
 // FoundGroups represents the result of finding groups.
 type FoundGroups struct {
-	Header string         `json:"header,omitempty"`
-	Total  int            `json:"total,omitempty"`
+	Header string             `json:"header,omitempty"`
+	Total  int                `json:"total,omitempty"`
 	Groups []*GroupSuggestion `json:"groups,omitempty"`
 }
 
 // GroupSuggestion represents a group suggestion.
 type GroupSuggestion struct {
-	Name    string       `json:"name,omitempty"`
-	HTML    string       `json:"html,omitempty"`
+	Name    string        `json:"name,omitempty"`
+	HTML    string        `json:"html,omitempty"`
 	Labels  []*GroupLabel `json:"labels,omitempty"`
-	GroupID string       `json:"groupId,omitempty"`
+	GroupID string        `json:"groupId,omitempty"`
 }
 
 // GroupLabel represents a label on a group suggestion.

@@ -91,8 +91,8 @@ func TestIssuesService_Create(t *testing.T) {
 	client, _ := NewClient(server.URL)
 	issue, _, err := client.Issues.Create(context.Background(), &IssueCreateRequest{
 		Fields: map[string]any{
-			"summary": "New issue",
-			"project": map[string]any{"key": "TEST"},
+			"summary":   "New issue",
+			"project":   map[string]any{"key": "TEST"},
 			"issuetype": map[string]any{"name": "Bug"},
 		},
 	})

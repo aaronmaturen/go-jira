@@ -21,6 +21,9 @@ linters-settings:
     local-prefixes: github.com/aaronmaturen/go-jira
   misspell:
     locale: US
+    ignore-words:
+      - favourite
+      - favourites
 
 issues:
   exclude-rules:

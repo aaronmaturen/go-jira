@@ -35,12 +35,12 @@ type ScreenListResult struct {
 
 // ListOptions specifies options for listing screens.
 type ScreenListOptions struct {
-	StartAt    int      `url:"startAt,omitempty"`
-	MaxResults int      `url:"maxResults,omitempty"`
-	IDs        []int64  `url:"id,omitempty"`
-	QueryString string  `url:"queryString,omitempty"`
-	Scope      []string `url:"scope,omitempty"`
-	OrderBy    string   `url:"orderBy,omitempty"`
+	StartAt     int      `url:"startAt,omitempty"`
+	MaxResults  int      `url:"maxResults,omitempty"`
+	IDs         []int64  `url:"id,omitempty"`
+	QueryString string   `url:"queryString,omitempty"`
+	Scope       []string `url:"scope,omitempty"`
+	OrderBy     string   `url:"orderBy,omitempty"`
 }
 
 // List returns screens with pagination.
@@ -309,9 +309,9 @@ func (s *ScreensService) MoveTabField(ctx context.Context, screenID, tabID int64
 
 // ScreenScheme represents a screen scheme.
 type ScreenScheme struct {
-	ID          int64              `json:"id,omitempty"`
-	Name        string             `json:"name,omitempty"`
-	Description string             `json:"description,omitempty"`
+	ID          int64                `json:"id,omitempty"`
+	Name        string               `json:"name,omitempty"`
+	Description string               `json:"description,omitempty"`
 	Screens     *ScreenSchemeScreens `json:"screens,omitempty"`
 }
 

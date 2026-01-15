@@ -14,9 +14,9 @@ type JQLService struct {
 
 // AutocompleteData represents JQL autocomplete suggestions.
 type AutocompleteData struct {
-	VisibleFieldNames        []*FieldRef           `json:"visibleFieldNames,omitempty"`
-	VisibleFunctionNames     []*FunctionRef        `json:"visibleFunctionNames,omitempty"`
-	JQLReservedWords         []string              `json:"jqlReservedWords,omitempty"`
+	VisibleFieldNames    []*FieldRef    `json:"visibleFieldNames,omitempty"`
+	VisibleFunctionNames []*FunctionRef `json:"visibleFunctionNames,omitempty"`
+	JQLReservedWords     []string       `json:"jqlReservedWords,omitempty"`
 }
 
 // FieldRef represents a field reference for autocomplete.
@@ -103,14 +103,14 @@ func (s *JQLService) GetAutocompleteSuggestions(ctx context.Context, fieldName, 
 
 // FieldReferenceData represents field reference data for JQL.
 type FieldReferenceData struct {
-	Value                   string   `json:"value,omitempty"`
-	DisplayName             string   `json:"displayName,omitempty"`
-	Orderable               string   `json:"orderable,omitempty"`
-	Searchable              string   `json:"searchable,omitempty"`
-	Auto                    string   `json:"auto,omitempty"`
-	CFID                    string   `json:"cfid,omitempty"`
-	Operators               []string `json:"operators,omitempty"`
-	Types                   []string `json:"types,omitempty"`
+	Value       string   `json:"value,omitempty"`
+	DisplayName string   `json:"displayName,omitempty"`
+	Orderable   string   `json:"orderable,omitempty"`
+	Searchable  string   `json:"searchable,omitempty"`
+	Auto        string   `json:"auto,omitempty"`
+	CFID        string   `json:"cfid,omitempty"`
+	Operators   []string `json:"operators,omitempty"`
+	Types       []string `json:"types,omitempty"`
 }
 
 // GetFieldReferenceData returns field reference data for JQL.
@@ -131,14 +131,14 @@ func (s *JQLService) GetFieldReferenceData(ctx context.Context) ([]*FieldReferen
 
 // ParsedJQL represents a parsed JQL query.
 type ParsedJQL struct {
-	JQL       string          `json:"jql,omitempty"`
-	Structure *JQLStructure   `json:"structure,omitempty"`
-	Errors    []string        `json:"errors,omitempty"`
+	JQL       string        `json:"jql,omitempty"`
+	Structure *JQLStructure `json:"structure,omitempty"`
+	Errors    []string      `json:"errors,omitempty"`
 }
 
 // JQLStructure represents the structure of a parsed JQL query.
 type JQLStructure struct {
-	Where   *JQLClause   `json:"where,omitempty"`
+	Where   *JQLClause    `json:"where,omitempty"`
 	OrderBy []*JQLOrderBy `json:"orderBy,omitempty"`
 }
 
@@ -160,13 +160,13 @@ type JQLField struct {
 
 // JQLOperand represents an operand in a JQL clause.
 type JQLOperand struct {
-	Type       string        `json:"type,omitempty"` // value, list, function, keyword
-	Value      string        `json:"value,omitempty"`
-	Values     []*JQLOperand `json:"values,omitempty"`
-	Function   string        `json:"function,omitempty"`
-	Arguments  []string      `json:"arguments,omitempty"`
-	Keyword    string        `json:"keyword,omitempty"`
-	EncodedValue string      `json:"encodedValue,omitempty"`
+	Type         string        `json:"type,omitempty"` // value, list, function, keyword
+	Value        string        `json:"value,omitempty"`
+	Values       []*JQLOperand `json:"values,omitempty"`
+	Function     string        `json:"function,omitempty"`
+	Arguments    []string      `json:"arguments,omitempty"`
+	Keyword      string        `json:"keyword,omitempty"`
+	EncodedValue string        `json:"encodedValue,omitempty"`
 }
 
 // JQLOrderBy represents an order by clause.
@@ -209,8 +209,8 @@ func (s *JQLService) Parse(ctx context.Context, queries []string, validation str
 
 // ConvertedJQL represents a converted JQL query.
 type ConvertedJQL struct {
-	JQL       string `json:"jql,omitempty"`
-	Error     string `json:"error,omitempty"`
+	JQL   string `json:"jql,omitempty"`
+	Error string `json:"error,omitempty"`
 }
 
 // ConvertJQLResult represents the result of converting JQL queries.
@@ -249,15 +249,15 @@ type SanitizeJQLInput struct {
 
 // SanitizedJQL represents a sanitized JQL query.
 type SanitizedJQL struct {
-	InitialQuery  string `json:"initialQuery,omitempty"`
-	SanitizedQuery string `json:"sanitizedQuery,omitempty"`
-	Errors        *SanitizeErrors `json:"errors,omitempty"`
-	AccountID     string `json:"accountId,omitempty"`
+	InitialQuery   string          `json:"initialQuery,omitempty"`
+	SanitizedQuery string          `json:"sanitizedQuery,omitempty"`
+	Errors         *SanitizeErrors `json:"errors,omitempty"`
+	AccountID      string          `json:"accountId,omitempty"`
 }
 
 // SanitizeErrors represents errors from sanitization.
 type SanitizeErrors struct {
-	ErrorMessages []string `json:"errorMessages,omitempty"`
+	ErrorMessages []string          `json:"errorMessages,omitempty"`
 	Errors        map[string]string `json:"errors,omitempty"`
 }
 
@@ -284,16 +284,16 @@ func (s *JQLService) Sanitize(ctx context.Context, queries []*SanitizeJQLInput) 
 
 // FunctionPrecomputation represents a precomputed JQL function.
 type FunctionPrecomputation struct {
-	Arguments []string `json:"arguments,omitempty"`
-	Created   string   `json:"created,omitempty"`
-	Error     string   `json:"error,omitempty"`
-	Field     string   `json:"field,omitempty"`
-	FunctionKey string `json:"functionKey,omitempty"`
-	FunctionName string `json:"functionName,omitempty"`
-	ID        string   `json:"id,omitempty"`
-	Operator  string   `json:"operator,omitempty"`
-	Updated   string   `json:"updated,omitempty"`
-	Value     string   `json:"value,omitempty"`
+	Arguments    []string `json:"arguments,omitempty"`
+	Created      string   `json:"created,omitempty"`
+	Error        string   `json:"error,omitempty"`
+	Field        string   `json:"field,omitempty"`
+	FunctionKey  string   `json:"functionKey,omitempty"`
+	FunctionName string   `json:"functionName,omitempty"`
+	ID           string   `json:"id,omitempty"`
+	Operator     string   `json:"operator,omitempty"`
+	Updated      string   `json:"updated,omitempty"`
+	Value        string   `json:"value,omitempty"`
 }
 
 // FunctionPrecomputationsResult represents function precomputations.

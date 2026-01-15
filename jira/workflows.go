@@ -16,26 +16,26 @@ type WorkflowsService struct {
 
 // Workflow represents a Jira workflow.
 type Workflow struct {
-	ID          string            `json:"id,omitempty"`
-	Name        string            `json:"name,omitempty"`
-	Description string            `json:"description,omitempty"`
-	IsDefault   bool              `json:"isDefault,omitempty"`
-	Scope       *Scope            `json:"scope,omitempty"`
+	ID          string                `json:"id,omitempty"`
+	Name        string                `json:"name,omitempty"`
+	Description string                `json:"description,omitempty"`
+	IsDefault   bool                  `json:"isDefault,omitempty"`
+	Scope       *Scope                `json:"scope,omitempty"`
 	Transitions []*WorkflowTransition `json:"transitions,omitempty"`
-	Statuses    []*WorkflowStatus `json:"statuses,omitempty"`
+	Statuses    []*WorkflowStatus     `json:"statuses,omitempty"`
 }
 
 // WorkflowTransition represents a transition in a workflow.
 type WorkflowTransition struct {
-	ID          string             `json:"id,omitempty"`
-	Name        string             `json:"name,omitempty"`
-	Description string             `json:"description,omitempty"`
-	From        []string           `json:"from,omitempty"`
-	To          string             `json:"to,omitempty"`
-	Type        string             `json:"type,omitempty"`
-	Screen      *TransitionScreen  `json:"screen,omitempty"`
-	Rules       *TransitionRules   `json:"rules,omitempty"`
-	Properties  map[string]string  `json:"properties,omitempty"`
+	ID          string            `json:"id,omitempty"`
+	Name        string            `json:"name,omitempty"`
+	Description string            `json:"description,omitempty"`
+	From        []string          `json:"from,omitempty"`
+	To          string            `json:"to,omitempty"`
+	Type        string            `json:"type,omitempty"`
+	Screen      *TransitionScreen `json:"screen,omitempty"`
+	Rules       *TransitionRules  `json:"rules,omitempty"`
+	Properties  map[string]string `json:"properties,omitempty"`
 }
 
 // TransitionScreen represents a screen for a transition.
@@ -78,9 +78,9 @@ type ConditionGroup struct {
 
 // WorkflowStatus represents a status in a workflow.
 type WorkflowStatus struct {
-	ID         string              `json:"id,omitempty"`
-	Name       string              `json:"name,omitempty"`
-	Properties map[string]string   `json:"properties,omitempty"`
+	ID         string            `json:"id,omitempty"`
+	Name       string            `json:"name,omitempty"`
+	Properties map[string]string `json:"properties,omitempty"`
 }
 
 // WorkflowListResult represents a paginated list of workflows.
@@ -162,10 +162,10 @@ func (s *WorkflowsService) Get(ctx context.Context, workflowID string, expand st
 
 // WorkflowCreateRequest represents a request to create a workflow.
 type WorkflowCreateRequest struct {
-	Name        string               `json:"name"`
-	Description string               `json:"description,omitempty"`
+	Name        string                      `json:"name"`
+	Description string                      `json:"description,omitempty"`
 	Transitions []*WorkflowTransitionCreate `json:"transitions,omitempty"`
-	Statuses    []*WorkflowStatusCreate `json:"statuses,omitempty"`
+	Statuses    []*WorkflowStatusCreate     `json:"statuses,omitempty"`
 }
 
 // WorkflowTransitionCreate represents a transition for workflow creation.
@@ -295,8 +295,8 @@ type TransitionRule struct {
 
 // TransitionRulesResult represents rules for a workflow transition.
 type TransitionRulesResult struct {
-	WorkflowID       string           `json:"workflowId,omitempty"`
-	Rules            []*TransitionRule `json:"rules,omitempty"`
+	WorkflowID string            `json:"workflowId,omitempty"`
+	Rules      []*TransitionRule `json:"rules,omitempty"`
 }
 
 // GetTransitionRuleConfigurations returns rule configurations for transitions.

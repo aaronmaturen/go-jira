@@ -16,20 +16,20 @@ type FieldsService struct {
 
 // Field represents a Jira field.
 type Field struct {
-	ID             string        `json:"id,omitempty"`
-	Key            string        `json:"key,omitempty"`
-	Name           string        `json:"name,omitempty"`
-	Custom         bool          `json:"custom,omitempty"`
-	Orderable      bool          `json:"orderable,omitempty"`
-	Navigable      bool          `json:"navigable,omitempty"`
-	Searchable     bool          `json:"searchable,omitempty"`
-	ClauseNames    []string      `json:"clauseNames,omitempty"`
-	Schema         *FieldSchema  `json:"schema,omitempty"`
-	Scope          *FieldScope   `json:"scope,omitempty"`
-	Description    string        `json:"description,omitempty"`
-	IsLocked       bool          `json:"isLocked,omitempty"`
-	SearcherKey    string        `json:"searcherKey,omitempty"`
-	UntranslatedName string      `json:"untranslatedName,omitempty"`
+	ID               string       `json:"id,omitempty"`
+	Key              string       `json:"key,omitempty"`
+	Name             string       `json:"name,omitempty"`
+	Custom           bool         `json:"custom,omitempty"`
+	Orderable        bool         `json:"orderable,omitempty"`
+	Navigable        bool         `json:"navigable,omitempty"`
+	Searchable       bool         `json:"searchable,omitempty"`
+	ClauseNames      []string     `json:"clauseNames,omitempty"`
+	Schema           *FieldSchema `json:"schema,omitempty"`
+	Scope            *FieldScope  `json:"scope,omitempty"`
+	Description      string       `json:"description,omitempty"`
+	IsLocked         bool         `json:"isLocked,omitempty"`
+	SearcherKey      string       `json:"searcherKey,omitempty"`
+	UntranslatedName string       `json:"untranslatedName,omitempty"`
 }
 
 // FieldSchema represents the schema of a field.
@@ -131,13 +131,13 @@ type FieldListResult struct {
 
 // SearchOptions specifies options for searching fields.
 type FieldSearchOptions struct {
-	StartAt        int      `url:"startAt,omitempty"`
-	MaxResults     int      `url:"maxResults,omitempty"`
-	Type           []string `url:"type,omitempty"`
-	ID             []string `url:"id,omitempty"`
-	Query          string   `url:"query,omitempty"`
-	OrderBy        string   `url:"orderBy,omitempty"`
-	Expand         []string `url:"expand,omitempty"`
+	StartAt    int      `url:"startAt,omitempty"`
+	MaxResults int      `url:"maxResults,omitempty"`
+	Type       []string `url:"type,omitempty"`
+	ID         []string `url:"id,omitempty"`
+	Query      string   `url:"query,omitempty"`
+	OrderBy    string   `url:"orderBy,omitempty"`
+	Expand     []string `url:"expand,omitempty"`
 }
 
 // Search searches for fields with pagination.
@@ -212,11 +212,11 @@ func (s *FieldsService) Restore(ctx context.Context, fieldID string) (*Response,
 
 // Context represents a custom field context.
 type FieldContext struct {
-	ID             string `json:"id,omitempty"`
-	Name           string `json:"name,omitempty"`
-	Description    string `json:"description,omitempty"`
-	IsGlobalContext bool  `json:"isGlobalContext,omitempty"`
-	IsAnyIssueType bool   `json:"isAnyIssueType,omitempty"`
+	ID              string `json:"id,omitempty"`
+	Name            string `json:"name,omitempty"`
+	Description     string `json:"description,omitempty"`
+	IsGlobalContext bool   `json:"isGlobalContext,omitempty"`
+	IsAnyIssueType  bool   `json:"isAnyIssueType,omitempty"`
 }
 
 // ContextListResult represents a paginated list of field contexts.
@@ -270,10 +270,10 @@ func (s *FieldsService) ListContexts(ctx context.Context, fieldID string, startA
 
 // ContextCreateRequest represents a request to create a field context.
 type ContextCreateRequest struct {
-	Name           string   `json:"name"`
-	Description    string   `json:"description,omitempty"`
-	ProjectIDs     []string `json:"projectIds,omitempty"`
-	IssueTypeIDs   []string `json:"issueTypeIds,omitempty"`
+	Name         string   `json:"name"`
+	Description  string   `json:"description,omitempty"`
+	ProjectIDs   []string `json:"projectIds,omitempty"`
+	IssueTypeIDs []string `json:"issueTypeIds,omitempty"`
 }
 
 // CreateContext creates a context for a custom field.

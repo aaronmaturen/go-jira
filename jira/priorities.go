@@ -272,11 +272,11 @@ func (s *PrioritiesService) GetScheme(ctx context.Context, schemeID string, expa
 
 // PrioritySchemeCreateRequest represents a request to create a priority scheme.
 type PrioritySchemeCreateRequest struct {
-	Name              string   `json:"name"`
-	Description       string   `json:"description,omitempty"`
-	DefaultPriorityID int64    `json:"defaultPriorityId,omitempty"`
-	PriorityIDs       []int64  `json:"priorityIds,omitempty"`
-	ProjectIDs        []int64  `json:"projectIds,omitempty"`
+	Name              string            `json:"name"`
+	Description       string            `json:"description,omitempty"`
+	DefaultPriorityID int64             `json:"defaultPriorityId,omitempty"`
+	PriorityIDs       []int64           `json:"priorityIds,omitempty"`
+	ProjectIDs        []int64           `json:"projectIds,omitempty"`
 	Mappings          map[string]string `json:"mappings,omitempty"`
 }
 

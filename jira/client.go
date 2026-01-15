@@ -66,39 +66,39 @@ type Client struct {
 	auth Authenticator
 
 	// Services for different API groups
-	Issues             *IssuesService
-	Search             *SearchService
-	Projects           *ProjectsService
-	Users              *UsersService
-	Groups             *GroupsService
-	Filters            *FiltersService
-	Dashboards         *DashboardsService
-	IssueTypes         *IssueTypesService
-	Priorities         *PrioritiesService
-	Resolutions        *ResolutionsService
-	Statuses           *StatusesService
-	Components         *ComponentsService
-	Versions           *VersionsService
-	IssueLinks         *IssueLinksService
-	IssueLinkTypes     *IssueLinkTypesService
-	Attachments        *AttachmentsService
-	Comments           *CommentsService
-	Worklogs           *WorklogsService
-	Watchers           *WatchersService
-	Votes              *VotesService
-	Fields             *FieldsService
-	Screens            *ScreensService
-	Workflows          *WorkflowsService
-	WorkflowSchemes    *WorkflowSchemesService
-	Permissions        *PermissionsService
-	ProjectRoles       *ProjectRolesService
-	Labels             *LabelsService
-	ServerInfo         *ServerInfoService
-	Myself             *MyselfService
-	ApplicationRoles   *ApplicationRolesService
-	AuditRecords       *AuditRecordsService
-	Avatars            *AvatarsService
-	JQL                *JQLService
+	Issues           *IssuesService
+	Search           *SearchService
+	Projects         *ProjectsService
+	Users            *UsersService
+	Groups           *GroupsService
+	Filters          *FiltersService
+	Dashboards       *DashboardsService
+	IssueTypes       *IssueTypesService
+	Priorities       *PrioritiesService
+	Resolutions      *ResolutionsService
+	Statuses         *StatusesService
+	Components       *ComponentsService
+	Versions         *VersionsService
+	IssueLinks       *IssueLinksService
+	IssueLinkTypes   *IssueLinkTypesService
+	Attachments      *AttachmentsService
+	Comments         *CommentsService
+	Worklogs         *WorklogsService
+	Watchers         *WatchersService
+	Votes            *VotesService
+	Fields           *FieldsService
+	Screens          *ScreensService
+	Workflows        *WorkflowsService
+	WorkflowSchemes  *WorkflowSchemesService
+	Permissions      *PermissionsService
+	ProjectRoles     *ProjectRolesService
+	Labels           *LabelsService
+	ServerInfo       *ServerInfoService
+	Myself           *MyselfService
+	ApplicationRoles *ApplicationRolesService
+	AuditRecords     *AuditRecordsService
+	Avatars          *AvatarsService
+	JQL              *JQLService
 }
 
 // Authenticator is the interface for authentication methods.
@@ -237,8 +237,8 @@ func newResponse(r *http.Response) *Response {
 
 // ErrorResponse represents an error response from the Jira API.
 type ErrorResponse struct {
-	Response      *http.Response `json:"-"`
-	ErrorMessages []string       `json:"errorMessages,omitempty"`
+	Response      *http.Response    `json:"-"`
+	ErrorMessages []string          `json:"errorMessages,omitempty"`
 	Errors        map[string]string `json:"errors,omitempty"`
 }
 

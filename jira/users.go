@@ -309,8 +309,8 @@ func (s *UsersService) GetGroups(ctx context.Context, accountID string) ([]*Grou
 
 // GroupName represents a group name.
 type GroupName struct {
-	Name   string `json:"name,omitempty"`
-	Self   string `json:"self,omitempty"`
+	Name    string `json:"name,omitempty"`
+	Self    string `json:"self,omitempty"`
 	GroupID string `json:"groupId,omitempty"`
 }
 

@@ -81,20 +81,20 @@ func (s *AttachmentsService) Delete(ctx context.Context, attachmentID string) (*
 
 // ExpandedContent represents expanded attachment content.
 type ExpandedContent struct {
-	ID        string   `json:"id,omitempty"`
-	MediaType string   `json:"mediaType,omitempty"`
-	Name      string   `json:"name,omitempty"`
-	Self      string   `json:"self,omitempty"`
-	Entries   []*AttachmentEntry `json:"entries,omitempty"`
-	TotalEntryCount int `json:"totalEntryCount,omitempty"`
+	ID              string             `json:"id,omitempty"`
+	MediaType       string             `json:"mediaType,omitempty"`
+	Name            string             `json:"name,omitempty"`
+	Self            string             `json:"self,omitempty"`
+	Entries         []*AttachmentEntry `json:"entries,omitempty"`
+	TotalEntryCount int                `json:"totalEntryCount,omitempty"`
 }
 
 // AttachmentEntry represents an entry in an expanded attachment.
 type AttachmentEntry struct {
-	EntryIndex      int    `json:"entryIndex,omitempty"`
-	Name            string `json:"name,omitempty"`
-	Size            int64  `json:"size,omitempty"`
-	MediaType       string `json:"mediaType,omitempty"`
+	EntryIndex int    `json:"entryIndex,omitempty"`
+	Name       string `json:"name,omitempty"`
+	Size       int64  `json:"size,omitempty"`
+	MediaType  string `json:"mediaType,omitempty"`
 }
 
 // Expand returns the contents of an attachment (for zip/tar files).
