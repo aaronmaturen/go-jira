@@ -1,0 +1,92 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main, master]
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache: true
+
+      - name: Install pkgsite
+        run: go install golang.org/x/pkgsite/cmd/pkgsite@latest
+
+      - name: Build documentation
+        run: |
+          mkdir -p _site
+          # Generate static docs using pkgsite
+          # Note: pkgsite serves dynamically, so we create a simple redirect
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>go-jira - Go Documentation</title>
+            <meta http-equiv="refresh" content="0; url=https://pkg.go.dev/github.com/aaronmaturen/go-jira">
+            <link rel="canonical" href="https://pkg.go.dev/github.com/aaronmaturen/go-jira">
+            <style>
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+              h1 { color: #333; }
+              a { color: #007d9c; }
+            </style>
+          </head>
+          <body>
+            <h1>go-jira</h1>
+            <p>A Go client library for the Jira Cloud REST API v3.</p>
+            <p>Redirecting to <a href="https://pkg.go.dev/github.com/aaronmaturen/go-jira">pkg.go.dev documentation</a>...</p>
+            <h2>Installation</h2>
+            <pre><code>go get github.com/aaronmaturen/go-jira</code></pre>
+            <h2>Quick Start</h2>
+            <pre><code>import "github.com/aaronmaturen/go-jira/jira"
+
+client, err := jira.NewClient(
+    "https://yourinstance.atlassian.net",
+    jira.WithBasicAuth("email@example.com", "api-token"),
+)
+
+// Search for issues
+result, _, err := client.Search.Do(ctx, "project = TEST", nil)
+</code></pre>
+          </body>
+          </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
