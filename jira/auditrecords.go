@@ -15,18 +15,18 @@ type AuditRecordsService struct {
 
 // AuditRecord represents an audit record.
 type AuditRecord struct {
-	ID              int64                `json:"id,omitempty"`
-	Summary         string               `json:"summary,omitempty"`
-	RemoteAddress   string               `json:"remoteAddress,omitempty"`
-	AuthorKey       string               `json:"authorKey,omitempty"`
-	AuthorAccountID string               `json:"authorAccountId,omitempty"`
-	Created         string               `json:"created,omitempty"`
-	Category        string               `json:"category,omitempty"`
-	EventSource     string               `json:"eventSource,omitempty"`
-	Description     string               `json:"description,omitempty"`
-	ObjectItem      *AssociatedItem      `json:"objectItem,omitempty"`
-	ChangedValues   []*ChangedValue      `json:"changedValues,omitempty"`
-	AssociatedItems []*AssociatedItem    `json:"associatedItems,omitempty"`
+	ID              int64             `json:"id,omitempty"`
+	Summary         string            `json:"summary,omitempty"`
+	RemoteAddress   string            `json:"remoteAddress,omitempty"`
+	AuthorKey       string            `json:"authorKey,omitempty"`
+	AuthorAccountID string            `json:"authorAccountId,omitempty"`
+	Created         string            `json:"created,omitempty"`
+	Category        string            `json:"category,omitempty"`
+	EventSource     string            `json:"eventSource,omitempty"`
+	Description     string            `json:"description,omitempty"`
+	ObjectItem      *AssociatedItem   `json:"objectItem,omitempty"`
+	ChangedValues   []*ChangedValue   `json:"changedValues,omitempty"`
+	AssociatedItems []*AssociatedItem `json:"associatedItems,omitempty"`
 }
 
 // AssociatedItem represents an item associated with an audit record.

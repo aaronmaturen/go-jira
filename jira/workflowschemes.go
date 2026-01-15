@@ -15,19 +15,19 @@ type WorkflowSchemesService struct {
 
 // WorkflowScheme represents a workflow scheme.
 type WorkflowScheme struct {
-	ID                  int64              `json:"id,omitempty"`
-	Name                string             `json:"name,omitempty"`
-	Description         string             `json:"description,omitempty"`
-	DefaultWorkflow     string             `json:"defaultWorkflow,omitempty"`
-	IssueTypeMappings   map[string]string  `json:"issueTypeMappings,omitempty"`
-	OriginalDefaultWorkflow string         `json:"originalDefaultWorkflow,omitempty"`
-	OriginalIssueTypeMappings map[string]string `json:"originalIssueTypeMappings,omitempty"`
-	Draft               bool               `json:"draft,omitempty"`
-	LastModifiedUser    *User              `json:"lastModifiedUser,omitempty"`
-	LastModified        string             `json:"lastModified,omitempty"`
-	Self                string             `json:"self,omitempty"`
-	UpdateDraftIfNeeded bool               `json:"updateDraftIfNeeded,omitempty"`
-	IssueTypes          map[string]*IssueType `json:"issueTypes,omitempty"`
+	ID                        int64                 `json:"id,omitempty"`
+	Name                      string                `json:"name,omitempty"`
+	Description               string                `json:"description,omitempty"`
+	DefaultWorkflow           string                `json:"defaultWorkflow,omitempty"`
+	IssueTypeMappings         map[string]string     `json:"issueTypeMappings,omitempty"`
+	OriginalDefaultWorkflow   string                `json:"originalDefaultWorkflow,omitempty"`
+	OriginalIssueTypeMappings map[string]string     `json:"originalIssueTypeMappings,omitempty"`
+	Draft                     bool                  `json:"draft,omitempty"`
+	LastModifiedUser          *User                 `json:"lastModifiedUser,omitempty"`
+	LastModified              string                `json:"lastModified,omitempty"`
+	Self                      string                `json:"self,omitempty"`
+	UpdateDraftIfNeeded       bool                  `json:"updateDraftIfNeeded,omitempty"`
+	IssueTypes                map[string]*IssueType `json:"issueTypes,omitempty"`
 }
 
 // WorkflowSchemeListResult represents a paginated list of workflow schemes.
@@ -97,10 +97,10 @@ func (s *WorkflowSchemesService) Get(ctx context.Context, schemeID int64, return
 
 // WorkflowSchemeCreateRequest represents a request to create a workflow scheme.
 type WorkflowSchemeCreateRequest struct {
-	Name                string            `json:"name"`
-	Description         string            `json:"description,omitempty"`
-	DefaultWorkflow     string            `json:"defaultWorkflow,omitempty"`
-	IssueTypeMappings   map[string]string `json:"issueTypeMappings,omitempty"`
+	Name              string            `json:"name"`
+	Description       string            `json:"description,omitempty"`
+	DefaultWorkflow   string            `json:"defaultWorkflow,omitempty"`
+	IssueTypeMappings map[string]string `json:"issueTypeMappings,omitempty"`
 }
 
 // Create creates a workflow scheme.

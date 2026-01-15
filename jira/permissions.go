@@ -16,13 +16,13 @@ type PermissionsService struct {
 
 // Permission represents a Jira permission.
 type Permission struct {
-	ID              string `json:"id,omitempty"`
-	Key             string `json:"key,omitempty"`
-	Name            string `json:"name,omitempty"`
-	Type            string `json:"type,omitempty"`
-	Description     string `json:"description,omitempty"`
-	HavePermission  bool   `json:"havePermission,omitempty"`
-	DeprecatedKey   bool   `json:"deprecatedKey,omitempty"`
+	ID             string `json:"id,omitempty"`
+	Key            string `json:"key,omitempty"`
+	Name           string `json:"name,omitempty"`
+	Type           string `json:"type,omitempty"`
+	Description    string `json:"description,omitempty"`
+	HavePermission bool   `json:"havePermission,omitempty"`
+	DeprecatedKey  bool   `json:"deprecatedKey,omitempty"`
 }
 
 // PermissionsResult represents a set of permissions.
@@ -48,12 +48,12 @@ func (s *PermissionsService) ListAll(ctx context.Context) (*PermissionsResult, *
 
 // MyPermissionsOptions specifies options for getting my permissions.
 type MyPermissionsOptions struct {
-	ProjectKey  string `url:"projectKey,omitempty"`
-	ProjectID   string `url:"projectId,omitempty"`
-	IssueKey    string `url:"issueKey,omitempty"`
-	IssueID     string `url:"issueId,omitempty"`
-	Permissions string `url:"permissions,omitempty"`
-	ProjectUUID string `url:"projectUuid,omitempty"`
+	ProjectKey               string `url:"projectKey,omitempty"`
+	ProjectID                string `url:"projectId,omitempty"`
+	IssueKey                 string `url:"issueKey,omitempty"`
+	IssueID                  string `url:"issueId,omitempty"`
+	Permissions              string `url:"permissions,omitempty"`
+	ProjectUUID              string `url:"projectUuid,omitempty"`
 	ProjectConfigurationUUID string `url:"projectConfigurationUuid,omitempty"`
 }
 
@@ -171,21 +171,21 @@ func (s *PermissionsService) GetPermittedProjects(ctx context.Context, permissio
 
 // PermissionScheme represents a permission scheme.
 type PermissionScheme struct {
-	ID          int64                      `json:"id,omitempty"`
-	Self        string                     `json:"self,omitempty"`
-	Name        string                     `json:"name,omitempty"`
-	Description string                     `json:"description,omitempty"`
-	Scope       *Scope                     `json:"scope,omitempty"`
-	Permissions []*PermissionGrant         `json:"permissions,omitempty"`
-	Expand      string                     `json:"expand,omitempty"`
+	ID          int64              `json:"id,omitempty"`
+	Self        string             `json:"self,omitempty"`
+	Name        string             `json:"name,omitempty"`
+	Description string             `json:"description,omitempty"`
+	Scope       *Scope             `json:"scope,omitempty"`
+	Permissions []*PermissionGrant `json:"permissions,omitempty"`
+	Expand      string             `json:"expand,omitempty"`
 }
 
 // PermissionGrant represents a permission grant in a scheme.
 type PermissionGrant struct {
-	ID         int64                     `json:"id,omitempty"`
-	Self       string                    `json:"self,omitempty"`
-	Holder     *PermissionHolder         `json:"holder,omitempty"`
-	Permission string                    `json:"permission,omitempty"`
+	ID         int64             `json:"id,omitempty"`
+	Self       string            `json:"self,omitempty"`
+	Holder     *PermissionHolder `json:"holder,omitempty"`
+	Permission string            `json:"permission,omitempty"`
 }
 
 // PermissionHolder represents a holder of a permission.
@@ -247,10 +247,10 @@ func (s *PermissionsService) GetScheme(ctx context.Context, schemeID int64, expa
 
 // PermissionSchemeCreateRequest represents a request to create a permission scheme.
 type PermissionSchemeCreateRequest struct {
-	Name        string             `json:"name"`
-	Description string             `json:"description,omitempty"`
+	Name        string                  `json:"name"`
+	Description string                  `json:"description,omitempty"`
 	Permissions []*PermissionGrantInput `json:"permissions,omitempty"`
-	Scope       *Scope             `json:"scope,omitempty"`
+	Scope       *Scope                  `json:"scope,omitempty"`
 }
 
 // PermissionGrantInput represents input for creating a permission grant.
@@ -457,11 +457,11 @@ func (s *PermissionsService) GetSecurityLevelsForProject(ctx context.Context, pr
 
 // IssueSecurityScheme represents an issue security scheme.
 type IssueSecurityScheme struct {
-	Self              string `json:"self,omitempty"`
-	ID                int64  `json:"id,omitempty"`
-	Name              string `json:"name,omitempty"`
-	Description       string `json:"description,omitempty"`
-	DefaultSecurityLevelID int64 `json:"defaultSecurityLevelId,omitempty"`
+	Self                   string `json:"self,omitempty"`
+	ID                     int64  `json:"id,omitempty"`
+	Name                   string `json:"name,omitempty"`
+	Description            string `json:"description,omitempty"`
+	DefaultSecurityLevelID int64  `json:"defaultSecurityLevelId,omitempty"`
 }
 
 // IssueSecuritySchemeListResult represents a list of issue security schemes.

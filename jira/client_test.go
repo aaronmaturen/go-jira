@@ -138,7 +138,7 @@ func TestBasicAuth_Apply(t *testing.T) {
 		Email:    "user@example.com",
 		APIToken: "token",
 	}
-	req, _ := http.NewRequest(http.MethodGet, "https://example.atlassian.net", nil)
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "https://example.atlassian.net", nil)
 	auth.Apply(req)
 
 	if req.Header.Get("Authorization") == "" {
@@ -150,18 +150,11 @@ func TestBearerAuth_Apply(t *testing.T) {
 	auth := &BearerAuth{
 		Token: "my-token",
 	}
-	req, _ := http.NewRequest(http.MethodGet, "https://example.atlassian.net", nil)
+	req, _ := http.NewRequestWithContext(context.Background(), http.MethodGet, "https://example.atlassian.net", nil)
 	auth.Apply(req)
 
 	expected := "Bearer my-token"
 	if req.Header.Get("Authorization") != expected {
 		t.Errorf("Authorization = %v, want %v", req.Header.Get("Authorization"), expected)
 	}
-}
-
-// setupTestServer creates a test server and client for testing.
-func setupTestServer(handler http.HandlerFunc) (*httptest.Server, *Client) {
-	server := httptest.NewServer(handler)
-	client, _ := NewClient(server.URL)
-	return server, client
 }

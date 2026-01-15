@@ -33,14 +33,14 @@ func (s *ComponentsService) Get(ctx context.Context, componentID string) (*Compo
 
 // ComponentCreateRequest represents a request to create a component.
 type ComponentCreateRequest struct {
-	Name             string `json:"name"`
-	Description      string `json:"description,omitempty"`
-	LeadAccountID    string `json:"leadAccountId,omitempty"`
-	LeadUserName     string `json:"leadUserName,omitempty"`
-	AssigneeType     string `json:"assigneeType,omitempty"` // PROJECT_DEFAULT, COMPONENT_LEAD, PROJECT_LEAD, UNASSIGNED
-	Project          string `json:"project,omitempty"`
-	ProjectID        int64  `json:"projectId,omitempty"`
-	Metadata         map[string]interface{} `json:"metadata,omitempty"`
+	Name          string                 `json:"name"`
+	Description   string                 `json:"description,omitempty"`
+	LeadAccountID string                 `json:"leadAccountId,omitempty"`
+	LeadUserName  string                 `json:"leadUserName,omitempty"`
+	AssigneeType  string                 `json:"assigneeType,omitempty"` // PROJECT_DEFAULT, COMPONENT_LEAD, PROJECT_LEAD, UNASSIGNED
+	Project       string                 `json:"project,omitempty"`
+	ProjectID     int64                  `json:"projectId,omitempty"`
+	Metadata      map[string]interface{} `json:"metadata,omitempty"`
 }
 
 // Create creates a new component.
@@ -61,11 +61,11 @@ func (s *ComponentsService) Create(ctx context.Context, component *ComponentCrea
 
 // ComponentUpdateRequest represents a request to update a component.
 type ComponentUpdateRequest struct {
-	Name             string `json:"name,omitempty"`
-	Description      string `json:"description,omitempty"`
-	LeadAccountID    string `json:"leadAccountId,omitempty"`
-	LeadUserName     string `json:"leadUserName,omitempty"`
-	AssigneeType     string `json:"assigneeType,omitempty"`
+	Name          string `json:"name,omitempty"`
+	Description   string `json:"description,omitempty"`
+	LeadAccountID string `json:"leadAccountId,omitempty"`
+	LeadUserName  string `json:"leadUserName,omitempty"`
+	AssigneeType  string `json:"assigneeType,omitempty"`
 }
 
 // Update updates a component.

@@ -16,18 +16,18 @@ type WorklogsService struct {
 
 // Worklog represents a Jira worklog entry.
 type Worklog struct {
-	Self             string      `json:"self,omitempty"`
-	ID               string      `json:"id,omitempty"`
-	IssueID          string      `json:"issueId,omitempty"`
-	Author           *User       `json:"author,omitempty"`
-	UpdateAuthor     *User       `json:"updateAuthor,omitempty"`
-	Comment          interface{} `json:"comment,omitempty"` // Can be string or ADF
-	Created          *Time       `json:"created,omitempty"`
-	Updated          *Time       `json:"updated,omitempty"`
-	Started          *Time       `json:"started,omitempty"`
-	TimeSpent        string      `json:"timeSpent,omitempty"`
-	TimeSpentSeconds int64       `json:"timeSpentSeconds,omitempty"`
-	Visibility       *Visibility `json:"visibility,omitempty"`
+	Self             string            `json:"self,omitempty"`
+	ID               string            `json:"id,omitempty"`
+	IssueID          string            `json:"issueId,omitempty"`
+	Author           *User             `json:"author,omitempty"`
+	UpdateAuthor     *User             `json:"updateAuthor,omitempty"`
+	Comment          interface{}       `json:"comment,omitempty"` // Can be string or ADF
+	Created          *Time             `json:"created,omitempty"`
+	Updated          *Time             `json:"updated,omitempty"`
+	Started          *Time             `json:"started,omitempty"`
+	TimeSpent        string            `json:"timeSpent,omitempty"`
+	TimeSpentSeconds int64             `json:"timeSpentSeconds,omitempty"`
+	Visibility       *Visibility       `json:"visibility,omitempty"`
 	Properties       []*EntityProperty `json:"properties,omitempty"`
 }
 
@@ -238,12 +238,12 @@ func (s *WorklogsService) Delete(ctx context.Context, issueIDOrKey, worklogID st
 
 // WorklogIDsResult represents a list of worklog IDs.
 type WorklogIDsResult struct {
-	Values        []WorklogID `json:"values,omitempty"`
-	Since         int64       `json:"since,omitempty"`
-	Until         int64       `json:"until,omitempty"`
-	Self          string      `json:"self,omitempty"`
-	NextPage      string      `json:"nextPage,omitempty"`
-	LastPage      bool        `json:"lastPage,omitempty"`
+	Values   []WorklogID `json:"values,omitempty"`
+	Since    int64       `json:"since,omitempty"`
+	Until    int64       `json:"until,omitempty"`
+	Self     string      `json:"self,omitempty"`
+	NextPage string      `json:"nextPage,omitempty"`
+	LastPage bool        `json:"lastPage,omitempty"`
 }
 
 // WorklogID represents a worklog ID.

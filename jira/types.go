@@ -156,7 +156,6 @@ type Component struct {
 	ProjectID           int    `json:"projectId,omitempty"`
 }
 
-
 // IssueType represents an issue type.
 type IssueType struct {
 	Self           string `json:"self,omitempty"`

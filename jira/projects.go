@@ -172,24 +172,24 @@ func (s *ProjectsService) Get(ctx context.Context, projectIDOrKey string, opts *
 
 // ProjectCreateRequest represents a request to create a project.
 type ProjectCreateRequest struct {
-	Key                           string `json:"key"`
-	Name                          string `json:"name"`
-	Description                   string `json:"description,omitempty"`
-	Lead                          string `json:"lead,omitempty"`
-	LeadAccountID                 string `json:"leadAccountId,omitempty"`
-	URL                           string `json:"url,omitempty"`
-	AssigneeType                  string `json:"assigneeType,omitempty"`
-	AvatarID                      int64  `json:"avatarId,omitempty"`
-	IssueSecurityScheme           int64  `json:"issueSecurityScheme,omitempty"`
-	PermissionScheme              int64  `json:"permissionScheme,omitempty"`
-	NotificationScheme            int64  `json:"notificationScheme,omitempty"`
-	CategoryID                    int64  `json:"categoryId,omitempty"`
-	ProjectTypeKey                string `json:"projectTypeKey,omitempty"`
-	ProjectTemplateKey            string `json:"projectTemplateKey,omitempty"`
-	WorkflowScheme                int64  `json:"workflowScheme,omitempty"`
-	IssueTypeScreenScheme         int64  `json:"issueTypeScreenScheme,omitempty"`
-	IssueTypeScheme               int64  `json:"issueTypeScheme,omitempty"`
-	FieldConfigurationScheme      int64  `json:"fieldConfigurationScheme,omitempty"`
+	Key                      string `json:"key"`
+	Name                     string `json:"name"`
+	Description              string `json:"description,omitempty"`
+	Lead                     string `json:"lead,omitempty"`
+	LeadAccountID            string `json:"leadAccountId,omitempty"`
+	URL                      string `json:"url,omitempty"`
+	AssigneeType             string `json:"assigneeType,omitempty"`
+	AvatarID                 int64  `json:"avatarId,omitempty"`
+	IssueSecurityScheme      int64  `json:"issueSecurityScheme,omitempty"`
+	PermissionScheme         int64  `json:"permissionScheme,omitempty"`
+	NotificationScheme       int64  `json:"notificationScheme,omitempty"`
+	CategoryID               int64  `json:"categoryId,omitempty"`
+	ProjectTypeKey           string `json:"projectTypeKey,omitempty"`
+	ProjectTemplateKey       string `json:"projectTemplateKey,omitempty"`
+	WorkflowScheme           int64  `json:"workflowScheme,omitempty"`
+	IssueTypeScreenScheme    int64  `json:"issueTypeScreenScheme,omitempty"`
+	IssueTypeScheme          int64  `json:"issueTypeScheme,omitempty"`
+	FieldConfigurationScheme int64  `json:"fieldConfigurationScheme,omitempty"`
 }
 
 // ProjectCreateResponse represents the response from creating a project.
@@ -217,18 +217,18 @@ func (s *ProjectsService) Create(ctx context.Context, project *ProjectCreateRequ
 
 // ProjectUpdateRequest represents a request to update a project.
 type ProjectUpdateRequest struct {
-	Key                           string `json:"key,omitempty"`
-	Name                          string `json:"name,omitempty"`
-	Description                   string `json:"description,omitempty"`
-	Lead                          string `json:"lead,omitempty"`
-	LeadAccountID                 string `json:"leadAccountId,omitempty"`
-	URL                           string `json:"url,omitempty"`
-	AssigneeType                  string `json:"assigneeType,omitempty"`
-	AvatarID                      int64  `json:"avatarId,omitempty"`
-	IssueSecurityScheme           int64  `json:"issueSecurityScheme,omitempty"`
-	PermissionScheme              int64  `json:"permissionScheme,omitempty"`
-	NotificationScheme            int64  `json:"notificationScheme,omitempty"`
-	CategoryID                    int64  `json:"categoryId,omitempty"`
+	Key                 string `json:"key,omitempty"`
+	Name                string `json:"name,omitempty"`
+	Description         string `json:"description,omitempty"`
+	Lead                string `json:"lead,omitempty"`
+	LeadAccountID       string `json:"leadAccountId,omitempty"`
+	URL                 string `json:"url,omitempty"`
+	AssigneeType        string `json:"assigneeType,omitempty"`
+	AvatarID            int64  `json:"avatarId,omitempty"`
+	IssueSecurityScheme int64  `json:"issueSecurityScheme,omitempty"`
+	PermissionScheme    int64  `json:"permissionScheme,omitempty"`
+	NotificationScheme  int64  `json:"notificationScheme,omitempty"`
+	CategoryID          int64  `json:"categoryId,omitempty"`
 }
 
 // Update updates a project.
@@ -342,16 +342,16 @@ func (s *ProjectsService) GetHierarchy(ctx context.Context, projectID int64) (*P
 
 // ProjectIssueTypeHierarchy represents the issue type hierarchy for a project.
 type ProjectIssueTypeHierarchy struct {
-	ProjectID int64                  `json:"projectId,omitempty"`
-	Hierarchy []*HierarchyLevel      `json:"hierarchy,omitempty"`
+	ProjectID int64             `json:"projectId,omitempty"`
+	Hierarchy []*HierarchyLevel `json:"hierarchy,omitempty"`
 }
 
 // HierarchyLevel represents a level in the issue type hierarchy.
 type HierarchyLevel struct {
-	EntityID         string       `json:"entityId,omitempty"`
-	Level            int          `json:"level,omitempty"`
-	Name             string       `json:"name,omitempty"`
-	IssueTypes       []*IssueType `json:"issueTypes,omitempty"`
+	EntityID   string       `json:"entityId,omitempty"`
+	Level      int          `json:"level,omitempty"`
+	Name       string       `json:"name,omitempty"`
+	IssueTypes []*IssueType `json:"issueTypes,omitempty"`
 }
 
 // GetNotificationScheme returns the notification scheme for a project.
@@ -378,38 +378,38 @@ func (s *ProjectsService) GetNotificationScheme(ctx context.Context, projectKeyO
 
 // NotificationScheme represents a notification scheme.
 type NotificationScheme struct {
-	Self                 string                      `json:"self,omitempty"`
-	ID                   int64                       `json:"id,omitempty"`
-	Name                 string                      `json:"name,omitempty"`
-	Description          string                      `json:"description,omitempty"`
+	Self                     string                     `json:"self,omitempty"`
+	ID                       int64                      `json:"id,omitempty"`
+	Name                     string                     `json:"name,omitempty"`
+	Description              string                     `json:"description,omitempty"`
 	NotificationSchemeEvents []*NotificationSchemeEvent `json:"notificationSchemeEvents,omitempty"`
-	Expand               string                      `json:"expand,omitempty"`
+	Expand                   string                     `json:"expand,omitempty"`
 }
 
 // NotificationSchemeEvent represents an event in a notification scheme.
 type NotificationSchemeEvent struct {
-	Event         *NotificationEvent         `json:"event,omitempty"`
-	Notifications []*EventNotification       `json:"notifications,omitempty"`
+	Event         *NotificationEvent   `json:"event,omitempty"`
+	Notifications []*EventNotification `json:"notifications,omitempty"`
 }
 
 // NotificationEvent represents a notification event.
 type NotificationEvent struct {
-	ID            int64  `json:"id,omitempty"`
-	Name          string `json:"name,omitempty"`
-	Description   string `json:"description,omitempty"`
+	ID          int64  `json:"id,omitempty"`
+	Name        string `json:"name,omitempty"`
+	Description string `json:"description,omitempty"`
 }
 
 // EventNotification represents a notification for an event.
 type EventNotification struct {
-	ID               int64  `json:"id,omitempty"`
-	NotificationType string `json:"notificationType,omitempty"`
-	Parameter        string `json:"parameter,omitempty"`
-	Expand           string `json:"expand,omitempty"`
-	Group            *Group `json:"group,omitempty"`
-	Field            *Field `json:"field,omitempty"`
-	EmailAddress     string `json:"emailAddress,omitempty"`
+	ID               int64        `json:"id,omitempty"`
+	NotificationType string       `json:"notificationType,omitempty"`
+	Parameter        string       `json:"parameter,omitempty"`
+	Expand           string       `json:"expand,omitempty"`
+	Group            *Group       `json:"group,omitempty"`
+	Field            *Field       `json:"field,omitempty"`
+	EmailAddress     string       `json:"emailAddress,omitempty"`
 	ProjectRole      *ProjectRole `json:"projectRole,omitempty"`
-	User             *User  `json:"user,omitempty"`
+	User             *User        `json:"user,omitempty"`
 }
 
 // ProjectRole represents a project role.

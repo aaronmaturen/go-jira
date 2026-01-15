@@ -15,58 +15,58 @@ type IssuesService struct {
 
 // Issue represents a Jira issue.
 type Issue struct {
-	Self       string       `json:"self,omitempty"`
-	ID         string       `json:"id,omitempty"`
-	Key        string       `json:"key,omitempty"`
-	Expand     string       `json:"expand,omitempty"`
-	Fields     *IssueFields `json:"fields,omitempty"`
-	Changelog  *Changelog   `json:"changelog,omitempty"`
-	Operations *Operations  `json:"operations,omitempty"`
-	Editmeta   *EditMeta    `json:"editmeta,omitempty"`
-	Transitions []*Transition `json:"transitions,omitempty"`
-	Names      map[string]string `json:"names,omitempty"`
-	Schema     map[string]*Schema `json:"schema,omitempty"`
-	RenderedFields map[string]any `json:"renderedFields,omitempty"`
-	Properties []*EntityProperty `json:"properties,omitempty"`
+	Self           string             `json:"self,omitempty"`
+	ID             string             `json:"id,omitempty"`
+	Key            string             `json:"key,omitempty"`
+	Expand         string             `json:"expand,omitempty"`
+	Fields         *IssueFields       `json:"fields,omitempty"`
+	Changelog      *Changelog         `json:"changelog,omitempty"`
+	Operations     *Operations        `json:"operations,omitempty"`
+	Editmeta       *EditMeta          `json:"editmeta,omitempty"`
+	Transitions    []*Transition      `json:"transitions,omitempty"`
+	Names          map[string]string  `json:"names,omitempty"`
+	Schema         map[string]*Schema `json:"schema,omitempty"`
+	RenderedFields map[string]any     `json:"renderedFields,omitempty"`
+	Properties     []*EntityProperty  `json:"properties,omitempty"`
 }
 
 // IssueFields represents the fields of an issue.
 type IssueFields struct {
-	Summary            string         `json:"summary,omitempty"`
-	Description        any            `json:"description,omitempty"` // Can be string or ADF
-	Type               *IssueType     `json:"issuetype,omitempty"`
-	Project            *Project       `json:"project,omitempty"`
-	Resolution         *Resolution    `json:"resolution,omitempty"`
-	Priority           *Priority      `json:"priority,omitempty"`
-	Resolutiondate     *Time          `json:"resolutiondate,omitempty"`
-	Created            *Time          `json:"created,omitempty"`
-	Updated            *Time          `json:"updated,omitempty"`
-	DueDate            *Date          `json:"duedate,omitempty"`
-	Watches            *Watches       `json:"watches,omitempty"`
-	Assignee           *User          `json:"assignee,omitempty"`
-	Reporter           *User          `json:"reporter,omitempty"`
-	Creator            *User          `json:"creator,omitempty"`
-	Votes              *Votes         `json:"votes,omitempty"`
-	Labels             []string       `json:"labels,omitempty"`
-	Comment            *Comments      `json:"comment,omitempty"`
-	Components         []*Component   `json:"components,omitempty"`
-	Status             *Status        `json:"status,omitempty"`
-	Progress           *Progress      `json:"progress,omitempty"`
-	AggregateProgress  *Progress      `json:"aggregateprogress,omitempty"`
-	TimeTracking       *TimeTracking  `json:"timetracking,omitempty"`
-	TimeSpent          int            `json:"timespent,omitempty"`
-	TimeEstimate       int            `json:"timeestimate,omitempty"`
-	TimeOriginalEstimate int          `json:"timeoriginalestimate,omitempty"`
-	Worklog            *Worklogs      `json:"worklog,omitempty"`
-	IssueLinks         []*IssueLink   `json:"issuelinks,omitempty"`
-	Attachment         []*Attachment  `json:"attachment,omitempty"`
-	Subtasks           []*Issue       `json:"subtasks,omitempty"`
-	Parent             *Issue         `json:"parent,omitempty"`
-	FixVersions        []*Version     `json:"fixVersions,omitempty"`
-	AffectsVersions    []*Version     `json:"versions,omitempty"`
-	Environment        any            `json:"environment,omitempty"` // Can be string or ADF
-	Security           *SecurityLevel `json:"security,omitempty"`
-	Unknowns           map[string]any `json:"-"` // Custom fields
+	Summary              string         `json:"summary,omitempty"`
+	Description          any            `json:"description,omitempty"` // Can be string or ADF
+	Type                 *IssueType     `json:"issuetype,omitempty"`
+	Project              *Project       `json:"project,omitempty"`
+	Resolution           *Resolution    `json:"resolution,omitempty"`
+	Priority             *Priority      `json:"priority,omitempty"`
+	Resolutiondate       *Time          `json:"resolutiondate,omitempty"`
+	Created              *Time          `json:"created,omitempty"`
+	Updated              *Time          `json:"updated,omitempty"`
+	DueDate              *Date          `json:"duedate,omitempty"`
+	Watches              *Watches       `json:"watches,omitempty"`
+	Assignee             *User          `json:"assignee,omitempty"`
+	Reporter             *User          `json:"reporter,omitempty"`
+	Creator              *User          `json:"creator,omitempty"`
+	Votes                *Votes         `json:"votes,omitempty"`
+	Labels               []string       `json:"labels,omitempty"`
+	Comment              *Comments      `json:"comment,omitempty"`
+	Components           []*Component   `json:"components,omitempty"`
+	Status               *Status        `json:"status,omitempty"`
+	Progress             *Progress      `json:"progress,omitempty"`
+	AggregateProgress    *Progress      `json:"aggregateprogress,omitempty"`
+	TimeTracking         *TimeTracking  `json:"timetracking,omitempty"`
+	TimeSpent            int            `json:"timespent,omitempty"`
+	TimeEstimate         int            `json:"timeestimate,omitempty"`
+	TimeOriginalEstimate int            `json:"timeoriginalestimate,omitempty"`
+	Worklog              *Worklogs      `json:"worklog,omitempty"`
+	IssueLinks           []*IssueLink   `json:"issuelinks,omitempty"`
+	Attachment           []*Attachment  `json:"attachment,omitempty"`
+	Subtasks             []*Issue       `json:"subtasks,omitempty"`
+	Parent               *Issue         `json:"parent,omitempty"`
+	FixVersions          []*Version     `json:"fixVersions,omitempty"`
+	AffectsVersions      []*Version     `json:"versions,omitempty"`
+	Environment          any            `json:"environment,omitempty"` // Can be string or ADF
+	Security             *SecurityLevel `json:"security,omitempty"`
+	Unknowns             map[string]any `json:"-"` // Custom fields
 }
 
 // SecurityLevel represents an issue security level.
@@ -144,12 +144,12 @@ type Operations struct {
 
 // LinkGroup represents a group of operation links.
 type LinkGroup struct {
-	ID      string          `json:"id,omitempty"`
-	StyleClass string       `json:"styleClass,omitempty"`
-	Header  *SimpleLink     `json:"header,omitempty"`
-	Weight  int             `json:"weight,omitempty"`
-	Links   []*SimpleLink   `json:"links,omitempty"`
-	Groups  []*LinkGroup    `json:"groups,omitempty"`
+	ID         string        `json:"id,omitempty"`
+	StyleClass string        `json:"styleClass,omitempty"`
+	Header     *SimpleLink   `json:"header,omitempty"`
+	Weight     int           `json:"weight,omitempty"`
+	Links      []*SimpleLink `json:"links,omitempty"`
+	Groups     []*LinkGroup  `json:"groups,omitempty"`
 }
 
 // SimpleLink represents a simple link.
@@ -230,11 +230,11 @@ func (s *IssuesService) Get(ctx context.Context, issueIDOrKey string, opts *Issu
 
 // IssueCreateRequest represents a request to create an issue.
 type IssueCreateRequest struct {
-	Fields       map[string]any `json:"fields,omitempty"`
-	Update       map[string]any `json:"update,omitempty"`
-	Transition   *TransitionInput `json:"transition,omitempty"`
-	HistoryMetadata *HistoryMetadata `json:"historyMetadata,omitempty"`
-	Properties   []*EntityProperty `json:"properties,omitempty"`
+	Fields          map[string]any    `json:"fields,omitempty"`
+	Update          map[string]any    `json:"update,omitempty"`
+	Transition      *TransitionInput  `json:"transition,omitempty"`
+	HistoryMetadata *HistoryMetadata  `json:"historyMetadata,omitempty"`
+	Properties      []*EntityProperty `json:"properties,omitempty"`
 }
 
 // TransitionInput represents a transition in a create/update request.
@@ -245,40 +245,40 @@ type TransitionInput struct {
 
 // HistoryMetadata represents history metadata.
 type HistoryMetadata struct {
-	Type             string                 `json:"type,omitempty"`
-	Description      string                 `json:"description,omitempty"`
-	DescriptionKey   string                 `json:"descriptionKey,omitempty"`
-	ActivityDescription string              `json:"activityDescription,omitempty"`
-	ActivityDescriptionKey string           `json:"activityDescriptionKey,omitempty"`
-	EmailDescription string                 `json:"emailDescription,omitempty"`
-	EmailDescriptionKey string              `json:"emailDescriptionKey,omitempty"`
-	Actor            *HistoryMetadataParticipant `json:"actor,omitempty"`
-	Generator        *HistoryMetadataParticipant `json:"generator,omitempty"`
-	Cause            *HistoryMetadataParticipant `json:"cause,omitempty"`
-	ExtraData        map[string]string      `json:"extraData,omitempty"`
+	Type                   string                      `json:"type,omitempty"`
+	Description            string                      `json:"description,omitempty"`
+	DescriptionKey         string                      `json:"descriptionKey,omitempty"`
+	ActivityDescription    string                      `json:"activityDescription,omitempty"`
+	ActivityDescriptionKey string                      `json:"activityDescriptionKey,omitempty"`
+	EmailDescription       string                      `json:"emailDescription,omitempty"`
+	EmailDescriptionKey    string                      `json:"emailDescriptionKey,omitempty"`
+	Actor                  *HistoryMetadataParticipant `json:"actor,omitempty"`
+	Generator              *HistoryMetadataParticipant `json:"generator,omitempty"`
+	Cause                  *HistoryMetadataParticipant `json:"cause,omitempty"`
+	ExtraData              map[string]string           `json:"extraData,omitempty"`
 }
 
 // HistoryMetadataParticipant represents a participant in history metadata.
 type HistoryMetadataParticipant struct {
-	ID          string `json:"id,omitempty"`
-	DisplayName string `json:"displayName,omitempty"`
+	ID             string `json:"id,omitempty"`
+	DisplayName    string `json:"displayName,omitempty"`
 	DisplayNameKey string `json:"displayNameKey,omitempty"`
-	Type        string `json:"type,omitempty"`
-	AvatarURL   string `json:"avatarUrl,omitempty"`
-	URL         string `json:"url,omitempty"`
+	Type           string `json:"type,omitempty"`
+	AvatarURL      string `json:"avatarUrl,omitempty"`
+	URL            string `json:"url,omitempty"`
 }
 
 // IssueCreateResponse represents the response from creating an issue.
 type IssueCreateResponse struct {
-	ID         string           `json:"id,omitempty"`
-	Key        string           `json:"key,omitempty"`
-	Self       string           `json:"self,omitempty"`
+	ID         string            `json:"id,omitempty"`
+	Key        string            `json:"key,omitempty"`
+	Self       string            `json:"self,omitempty"`
 	Transition *TransitionResult `json:"transition,omitempty"`
 }
 
 // TransitionResult represents a transition result.
 type TransitionResult struct {
-	Status          int    `json:"status,omitempty"`
+	Status          int              `json:"status,omitempty"`
 	ErrorCollection *ErrorCollection `json:"errorCollection,omitempty"`
 }
 
@@ -337,18 +337,18 @@ type IssuesBulkResponse struct {
 
 // BulkOperationError represents an error from a bulk operation.
 type BulkOperationError struct {
-	Status          int               `json:"status,omitempty"`
-	ElementErrors   *ErrorCollection  `json:"elementErrors,omitempty"`
-	FailedElementNumber int           `json:"failedElementNumber,omitempty"`
+	Status              int              `json:"status,omitempty"`
+	ElementErrors       *ErrorCollection `json:"elementErrors,omitempty"`
+	FailedElementNumber int              `json:"failedElementNumber,omitempty"`
 }
 
 // IssueUpdateRequest represents a request to update an issue.
 type IssueUpdateRequest struct {
-	Fields       map[string]any `json:"fields,omitempty"`
-	Update       map[string]any `json:"update,omitempty"`
-	Transition   *TransitionInput `json:"transition,omitempty"`
-	HistoryMetadata *HistoryMetadata `json:"historyMetadata,omitempty"`
-	Properties   []*EntityProperty `json:"properties,omitempty"`
+	Fields          map[string]any    `json:"fields,omitempty"`
+	Update          map[string]any    `json:"update,omitempty"`
+	Transition      *TransitionInput  `json:"transition,omitempty"`
+	HistoryMetadata *HistoryMetadata  `json:"historyMetadata,omitempty"`
+	Properties      []*EntityProperty `json:"properties,omitempty"`
 }
 
 // Update updates an issue.
@@ -564,11 +564,11 @@ func (s *IssuesService) Notify(ctx context.Context, issueIDOrKey string, notific
 
 // Notification represents a notification to send.
 type Notification struct {
-	Subject    string                `json:"subject,omitempty"`
-	TextBody   string                `json:"textBody,omitempty"`
-	HTMLBody   string                `json:"htmlBody,omitempty"`
-	To         *NotificationRecipients `json:"to,omitempty"`
-	Restrict   *NotificationRestrict `json:"restrict,omitempty"`
+	Subject  string                  `json:"subject,omitempty"`
+	TextBody string                  `json:"textBody,omitempty"`
+	HTMLBody string                  `json:"htmlBody,omitempty"`
+	To       *NotificationRecipients `json:"to,omitempty"`
+	Restrict *NotificationRestrict   `json:"restrict,omitempty"`
 }
 
 // NotificationRecipients represents the recipients of a notification.
@@ -583,7 +583,7 @@ type NotificationRecipients struct {
 
 // NotificationRestrict represents restrictions on notifications.
 type NotificationRestrict struct {
-	Groups      []*Group `json:"groups,omitempty"`
+	Groups      []*Group                `json:"groups,omitempty"`
 	Permissions []*RestrictedPermission `json:"permissions,omitempty"`
 }
 
@@ -685,18 +685,18 @@ type CreateMetaOptions struct {
 
 // CreateMeta represents issue creation metadata.
 type CreateMeta struct {
-	Expand   string          `json:"expand,omitempty"`
+	Expand   string               `json:"expand,omitempty"`
 	Projects []*CreateMetaProject `json:"projects,omitempty"`
 }
 
 // CreateMetaProject represents a project in create metadata.
 type CreateMetaProject struct {
-	Self       string                   `json:"self,omitempty"`
-	ID         string                   `json:"id,omitempty"`
-	Key        string                   `json:"key,omitempty"`
-	Name       string                   `json:"name,omitempty"`
-	AvatarURLs map[string]string        `json:"avatarUrls,omitempty"`
-	IssueTypes []*CreateMetaIssueType   `json:"issuetypes,omitempty"`
+	Self       string                 `json:"self,omitempty"`
+	ID         string                 `json:"id,omitempty"`
+	Key        string                 `json:"key,omitempty"`
+	Name       string                 `json:"name,omitempty"`
+	AvatarURLs map[string]string      `json:"avatarUrls,omitempty"`
+	IssueTypes []*CreateMetaIssueType `json:"issuetypes,omitempty"`
 }
 
 // CreateMetaIssueType represents an issue type in create metadata.

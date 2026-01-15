@@ -64,8 +64,8 @@ func (s *WatchersService) Remove(ctx context.Context, issueIDOrKey, accountID st
 
 // BulkWatchersResult represents the result of bulk watching operations.
 type BulkWatchersResult struct {
-	Errors   []string `json:"errors,omitempty"`
-	Success  []string `json:"success,omitempty"`
+	Errors  []string `json:"errors,omitempty"`
+	Success []string `json:"success,omitempty"`
 }
 
 // BulkAdd adds a watcher to multiple issues.

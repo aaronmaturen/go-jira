@@ -12,16 +12,16 @@ type ServerInfoService struct {
 
 // ServerInfo represents Jira server information.
 type ServerInfo struct {
-	BaseURL        string            `json:"baseUrl,omitempty"`
-	Version        string            `json:"version,omitempty"`
-	VersionNumbers []int             `json:"versionNumbers,omitempty"`
-	DeploymentType string            `json:"deploymentType,omitempty"`
-	BuildNumber    int               `json:"buildNumber,omitempty"`
-	BuildDate      string            `json:"buildDate,omitempty"`
-	ServerTime     string            `json:"serverTime,omitempty"`
-	ScmInfo        string            `json:"scmInfo,omitempty"`
-	ServerTitle    string            `json:"serverTitle,omitempty"`
-	HealthChecks   []*HealthCheck    `json:"healthChecks,omitempty"`
+	BaseURL        string         `json:"baseUrl,omitempty"`
+	Version        string         `json:"version,omitempty"`
+	VersionNumbers []int          `json:"versionNumbers,omitempty"`
+	DeploymentType string         `json:"deploymentType,omitempty"`
+	BuildNumber    int            `json:"buildNumber,omitempty"`
+	BuildDate      string         `json:"buildDate,omitempty"`
+	ServerTime     string         `json:"serverTime,omitempty"`
+	ScmInfo        string         `json:"scmInfo,omitempty"`
+	ServerTitle    string         `json:"serverTitle,omitempty"`
+	HealthChecks   []*HealthCheck `json:"healthChecks,omitempty"`
 }
 
 // HealthCheck represents a server health check.

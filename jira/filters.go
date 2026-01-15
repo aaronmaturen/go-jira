@@ -16,30 +16,30 @@ type FiltersService struct {
 
 // Filter represents a Jira filter.
 type Filter struct {
-	Self             string           `json:"self,omitempty"`
-	ID               string           `json:"id,omitempty"`
-	Name             string           `json:"name,omitempty"`
-	Description      string           `json:"description,omitempty"`
-	Owner            *User            `json:"owner,omitempty"`
-	JQL              string           `json:"jql,omitempty"`
-	ViewURL          string           `json:"viewUrl,omitempty"`
-	SearchURL        string           `json:"searchUrl,omitempty"`
-	Favourite        bool             `json:"favourite,omitempty"`
-	FavouritedCount  int64            `json:"favouritedCount,omitempty"`
-	SharePermissions []*SharePermission `json:"sharePermissions,omitempty"`
-	EditPermissions  []*SharePermission `json:"editPermissions,omitempty"`
+	Self             string                `json:"self,omitempty"`
+	ID               string                `json:"id,omitempty"`
+	Name             string                `json:"name,omitempty"`
+	Description      string                `json:"description,omitempty"`
+	Owner            *User                 `json:"owner,omitempty"`
+	JQL              string                `json:"jql,omitempty"`
+	ViewURL          string                `json:"viewUrl,omitempty"`
+	SearchURL        string                `json:"searchUrl,omitempty"`
+	Favourite        bool                  `json:"favourite,omitempty"`
+	FavouritedCount  int64                 `json:"favouritedCount,omitempty"`
+	SharePermissions []*SharePermission    `json:"sharePermissions,omitempty"`
+	EditPermissions  []*SharePermission    `json:"editPermissions,omitempty"`
 	Subscriptions    []*FilterSubscription `json:"subscriptions,omitempty"`
-	Expand           string           `json:"expand,omitempty"`
+	Expand           string                `json:"expand,omitempty"`
 }
 
 // SharePermission represents a filter share permission.
 type SharePermission struct {
-	ID      int64    `json:"id,omitempty"`
-	Type    string   `json:"type,omitempty"`
-	Project *Project `json:"project,omitempty"`
+	ID      int64        `json:"id,omitempty"`
+	Type    string       `json:"type,omitempty"`
+	Project *Project     `json:"project,omitempty"`
 	Role    *ProjectRole `json:"role,omitempty"`
-	Group   *Group   `json:"group,omitempty"`
-	User    *User    `json:"user,omitempty"`
+	Group   *Group       `json:"group,omitempty"`
+	User    *User        `json:"user,omitempty"`
 }
 
 // FilterSubscription represents a filter subscription.
@@ -51,20 +51,20 @@ type FilterSubscription struct {
 
 // FilterCreateRequest represents a request to create a filter.
 type FilterCreateRequest struct {
-	Name             string           `json:"name"`
-	Description      string           `json:"description,omitempty"`
-	JQL              string           `json:"jql,omitempty"`
-	Favourite        bool             `json:"favourite,omitempty"`
+	Name             string             `json:"name"`
+	Description      string             `json:"description,omitempty"`
+	JQL              string             `json:"jql,omitempty"`
+	Favourite        bool               `json:"favourite,omitempty"`
 	SharePermissions []*SharePermission `json:"sharePermissions,omitempty"`
 	EditPermissions  []*SharePermission `json:"editPermissions,omitempty"`
 }
 
 // FilterUpdateRequest represents a request to update a filter.
 type FilterUpdateRequest struct {
-	Name             string           `json:"name,omitempty"`
-	Description      string           `json:"description,omitempty"`
-	JQL              string           `json:"jql,omitempty"`
-	Favourite        bool             `json:"favourite,omitempty"`
+	Name             string             `json:"name,omitempty"`
+	Description      string             `json:"description,omitempty"`
+	JQL              string             `json:"jql,omitempty"`
+	Favourite        bool               `json:"favourite,omitempty"`
 	SharePermissions []*SharePermission `json:"sharePermissions,omitempty"`
 	EditPermissions  []*SharePermission `json:"editPermissions,omitempty"`
 }
@@ -100,8 +100,8 @@ func (s *FiltersService) Create(ctx context.Context, filter *FilterCreateRequest
 
 // GetOptions specifies options for getting a filter.
 type FilterGetOptions struct {
-	Expand []string `url:"expand,omitempty"`
-	OverrideSharePermissions bool `url:"overrideSharePermissions,omitempty"`
+	Expand                   []string `url:"expand,omitempty"`
+	OverrideSharePermissions bool     `url:"overrideSharePermissions,omitempty"`
 }
 
 // Get returns a filter by ID.
@@ -178,8 +178,8 @@ func (s *FiltersService) Delete(ctx context.Context, filterID int64) (*Response,
 
 // ListMyFiltersOptions specifies options for listing my filters.
 type ListMyFiltersOptions struct {
-	Expand             []string `url:"expand,omitempty"`
-	IncludeFavourites  bool     `url:"includeFavourites,omitempty"`
+	Expand            []string `url:"expand,omitempty"`
+	IncludeFavourites bool     `url:"includeFavourites,omitempty"`
 }
 
 // ListMy returns filters owned by the current user.
@@ -215,18 +215,18 @@ func (s *FiltersService) ListMy(ctx context.Context, opts *ListMyFiltersOptions)
 
 // SearchFiltersOptions specifies options for searching filters.
 type SearchFiltersOptions struct {
-	FilterName    string   `url:"filterName,omitempty"`
-	AccountID     string   `url:"accountId,omitempty"`
-	Owner         string   `url:"owner,omitempty"`
-	GroupName     string   `url:"groupname,omitempty"`
-	GroupID       string   `url:"groupId,omitempty"`
-	ProjectID     int64    `url:"projectId,omitempty"`
-	IDs           []int64  `url:"id,omitempty"`
-	OrderBy       string   `url:"orderBy,omitempty"`
-	StartAt       int      `url:"startAt,omitempty"`
-	MaxResults    int      `url:"maxResults,omitempty"`
-	Expand        []string `url:"expand,omitempty"`
-	OverrideSharePermissions bool `url:"overrideSharePermissions,omitempty"`
+	FilterName               string   `url:"filterName,omitempty"`
+	AccountID                string   `url:"accountId,omitempty"`
+	Owner                    string   `url:"owner,omitempty"`
+	GroupName                string   `url:"groupname,omitempty"`
+	GroupID                  string   `url:"groupId,omitempty"`
+	ProjectID                int64    `url:"projectId,omitempty"`
+	IDs                      []int64  `url:"id,omitempty"`
+	OrderBy                  string   `url:"orderBy,omitempty"`
+	StartAt                  int      `url:"startAt,omitempty"`
+	MaxResults               int      `url:"maxResults,omitempty"`
+	Expand                   []string `url:"expand,omitempty"`
+	OverrideSharePermissions bool     `url:"overrideSharePermissions,omitempty"`
 }
 
 // SearchFiltersResult represents a paginated list of filters.
@@ -424,13 +424,13 @@ func (s *FiltersService) GetSharePermissions(ctx context.Context, filterID int64
 
 // SharePermissionRequest represents a request to add a share permission.
 type SharePermissionRequest struct {
-	Type           string `json:"type"`
-	ProjectID      string `json:"projectId,omitempty"`
-	GroupName      string `json:"groupname,omitempty"`
-	GroupID        string `json:"groupId,omitempty"`
-	ProjectRoleID  string `json:"projectRoleId,omitempty"`
-	AccountID      string `json:"accountId,omitempty"`
-	Rights         int    `json:"rights,omitempty"`
+	Type          string `json:"type"`
+	ProjectID     string `json:"projectId,omitempty"`
+	GroupName     string `json:"groupname,omitempty"`
+	GroupID       string `json:"groupId,omitempty"`
+	ProjectRoleID string `json:"projectRoleId,omitempty"`
+	AccountID     string `json:"accountId,omitempty"`
+	Rights        int    `json:"rights,omitempty"`
 }
 
 // AddSharePermission adds a share permission to a filter.

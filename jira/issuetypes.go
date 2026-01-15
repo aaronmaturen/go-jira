@@ -152,11 +152,11 @@ func (s *IssueTypesService) LoadAvatar(ctx context.Context, issueTypeID string, 
 
 // IssueTypeScheme represents an issue type scheme.
 type IssueTypeScheme struct {
-	ID                 string   `json:"id,omitempty"`
-	Name               string   `json:"name,omitempty"`
-	Description        string   `json:"description,omitempty"`
-	DefaultIssueTypeID string   `json:"defaultIssueTypeId,omitempty"`
-	IsDefault          bool     `json:"isDefault,omitempty"`
+	ID                 string `json:"id,omitempty"`
+	Name               string `json:"name,omitempty"`
+	Description        string `json:"description,omitempty"`
+	DefaultIssueTypeID string `json:"defaultIssueTypeId,omitempty"`
+	IsDefault          bool   `json:"isDefault,omitempty"`
 }
 
 // IssueTypeSchemeListResult represents a paginated list of issue type schemes.

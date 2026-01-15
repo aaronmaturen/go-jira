@@ -61,12 +61,12 @@ type StatusListResult struct {
 
 // SearchOptions specifies options for searching statuses.
 type StatusSearchOptions struct {
-	StartAt       int      `url:"startAt,omitempty"`
-	MaxResults    int      `url:"maxResults,omitempty"`
-	Expand        string   `url:"expand,omitempty"`
-	ProjectID     string   `url:"projectId,omitempty"`
-	SearchString  string   `url:"searchString,omitempty"`
-	StatusCategory string  `url:"statusCategory,omitempty"`
+	StartAt        int    `url:"startAt,omitempty"`
+	MaxResults     int    `url:"maxResults,omitempty"`
+	Expand         string `url:"expand,omitempty"`
+	ProjectID      string `url:"projectId,omitempty"`
+	SearchString   string `url:"searchString,omitempty"`
+	StatusCategory string `url:"statusCategory,omitempty"`
 }
 
 // Search searches for statuses with pagination.
@@ -143,9 +143,9 @@ func (s *StatusesService) BulkGet(ctx context.Context, ids []string, expand stri
 
 // StatusCreateInput represents the input for creating a status.
 type StatusCreateInput struct {
-	Name             string `json:"name"`
-	Description      string `json:"description,omitempty"`
-	StatusCategory   string `json:"statusCategory"` // TODO, IN_PROGRESS, DONE
+	Name           string `json:"name"`
+	Description    string `json:"description,omitempty"`
+	StatusCategory string `json:"statusCategory"` // TODO, IN_PROGRESS, DONE
 }
 
 // StatusCreateRequest represents a request to create statuses.
@@ -180,10 +180,10 @@ func (s *StatusesService) Create(ctx context.Context, request *StatusCreateReque
 
 // StatusUpdateInput represents the input for updating a status.
 type StatusUpdateInput struct {
-	ID               string `json:"id"`
-	Name             string `json:"name,omitempty"`
-	Description      string `json:"description,omitempty"`
-	StatusCategory   string `json:"statusCategory,omitempty"`
+	ID             string `json:"id"`
+	Name           string `json:"name,omitempty"`
+	Description    string `json:"description,omitempty"`
+	StatusCategory string `json:"statusCategory,omitempty"`
 }
 
 // StatusUpdateRequest represents a request to update statuses.

@@ -15,13 +15,13 @@ type AvatarsService struct {
 
 // Avatar represents an avatar.
 type Avatar struct {
-	ID       string `json:"id,omitempty"`
-	Owner    string `json:"owner,omitempty"`
-	IsSystemAvatar bool `json:"isSystemAvatar,omitempty"`
-	IsSelected bool   `json:"isSelected,omitempty"`
-	IsDeletable bool  `json:"isDeletable,omitempty"`
-	FileName   string `json:"fileName,omitempty"`
-	URLs       map[string]string `json:"urls,omitempty"`
+	ID             string            `json:"id,omitempty"`
+	Owner          string            `json:"owner,omitempty"`
+	IsSystemAvatar bool              `json:"isSystemAvatar,omitempty"`
+	IsSelected     bool              `json:"isSelected,omitempty"`
+	IsDeletable    bool              `json:"isDeletable,omitempty"`
+	FileName       string            `json:"fileName,omitempty"`
+	URLs           map[string]string `json:"urls,omitempty"`
 }
 
 // Avatars represents a collection of avatars.
